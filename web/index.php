@@ -1,9 +1,9 @@
 <?php require('dbcon.php');
-	$sth_select = $pdo->prepare("SELECT * FROM data ORDER BY timestamp DESC LIMIT 1");
+	$sth_select = $pdo->prepare("SELECT * FROM tb_data ORDER BY timestamp DESC LIMIT 1");
 	$sth_select->execute();
 	$rows = $sth_select->fetchAll(PDO::FETCH_ASSOC);
 	
-	$sth_g = $pdo->prepare("SELECT pm1, pm25, pm10, timestamp FROM data ORDER BY timestamp DESC LIMIT 228;");
+	$sth_g = $pdo->prepare("SELECT pm1, pm25, pm10, timestamp FROM tb_data ORDER BY timestamp DESC LIMIT 228;");
 	$sth_g->execute();
 	$resulta = $sth_g->fetchAll(\PDO::FETCH_ASSOC);
 	$result = json_encode($resulta);

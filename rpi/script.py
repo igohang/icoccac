@@ -103,12 +103,12 @@ if __name__ == '__main__':
     host="10.35.51.240",
     user="dbcon",
     passwd="NYc9BVJsK1a8knMM",
-    database="pm"
+    database="icoccac"
     )
 
     mycursor = mydb.cursor()
-    sql = "INSERT INTO data (pm1, pm25, pm10, temp, humi, aqi_pm25, aqi_pm10) VALUES (%s, %s, %s, %s, %s, %s, %s)"
-    val = (d['apm10'], d['apm25'], d['apm100'], td['temp'], td['humi'], pm25aqi, pm10aqi)
+    sql = "INSERT INTO tb_data (location, pm1, pm25, pm10, temp, humi, aqi_pm25, aqi_pm10) VALUES (%s, %s, %s, %s, %s, %s, %s, %s)"
+    val = ("1", d['apm10'], d['apm25'], d['apm100'], td['temp'], td['humi'], pm25aqi, pm10aqi)
     mycursor.execute(sql, val)
 
     mydb.commit()

@@ -2,7 +2,7 @@
 	$dbhost='localhost';
 	$dbuser='dbcon';
 	$dbpass='NYc9BVJsK1a8knMM';
-	$dbname='pm';
+	$dbname='icoccac';
 	
 //////// Do not Edit below /////////
 	try {
