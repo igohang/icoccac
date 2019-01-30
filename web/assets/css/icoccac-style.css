@@ -1,0 +1,125 @@
+/* 
+ * iCoccac - Stylesheet 
+ * created by iConnex
+ *
+ */
+
+/*Color*/
+.sky{       color : #55DDE0; } 
+.glacier{   color : #64BABE; }
+.sea{       color : #55A6CB; }
+.northpole{ color : #008EA0; }
+.southpole{ color : #085979; }
+.ocean{     color : #3A727F; }
+.whale{     color : #1E3D69; }
+.violance{  color : #7D4282; }
+.hurt{      color : #6D5F69; }
+.pupple{    color : #C83E6A; }
+.ruby{      color : #DD1223; }
+.sakura{    color : #E86C74; }
+.solove{    color : #F7BBA0; }
+.sun{       color : #FFD92D; }
+.star{      color : #F4A300; }
+.summer{    color : #F26419; } 
+.sohot{     color : #FF6600; }
+.algae{     color : #C6D589; }
+.tree{      color : #6AA173; }
+.forest{    color : #447866; }
+.healthy{   color : #86A845; }
+.leaf{      color : #B3C648; }
+.cloudy{    color : #E5E1E0; }
+
+.bg-sky{       background-color : #55DDE0; } 
+.bg-glacier{   background-color : #64BABE; }
+.bg-sea{       background-color : #55A6CB; }
+.bg-northpole{ background-color : #008EA0; }
+.bg-southpole{ background-color : #085979; }
+.bg-ocean{     background-color : #39717D; }
+.bg-whale{     background-color : #1E3D69; }
+.bg-violance{  background-color : #7D4282; }
+.bg-hurt{      background-color : #6D5F69; }
+.bg-pupple{    background-color : #C83E6A; }
+.bg-ruby{      background-color : #DD1223; }
+.bg-sakura{    background-color : #E86C74; }
+.bg-solove{    background-color : #F7BBA0; }
+.bg-sun{       background-color : #FFD92D; }
+.bg-star{      background-color : #F4A300; }
+.bg-summer{    background-color : #F26419; } 
+.bg-sohot{     background-color : #FF6600; }
+.bg-algae{     background-color : #C6D589; }
+.bg-tree{      background-color : #6AA173; }
+.bg-forest{    background-color : #447866; }
+.bg-healthy{   background-color : #86A845; }
+.bg-leaf{      background-color : #B3C648; }
+.bg-cloudy{    background-color : #E5E1E0; }
+
+.text-smoke{   color: #DCDAD6; }
+.text-coal{    color: rgb(50, 54, 66); }
+.text-rain{    color: #CFC4B6; } 
+.text-cloud{   color: #FAFAFA; }
+
+/*Text*/
+.icon-topic{
+    font-size: 3em;
+    font-weight: 300;
+}
+.icon-status-big {
+    font-size: 4.25em;
+    min-height: 64px;
+}
+.icon-status{
+    font-size: 1em;
+    font-weight: 300;
+}
+.index-number {
+    font-size: 3.5em;
+    text-align: center;
+}
+.text-left{
+    text-align: left !important;
+}
+.text-right{
+    text-align: right !important;
+}
+.set-center{
+    text-align: center !important;
+}
+.m-0{
+    margin:0;
+}
+
+/*Card*/
+.card-hazardous{
+    background-color: #800000;
+    color: #F7BBA0;
+}
+.card-veryunhealthy{
+    background-color: #7D4282;
+    color: #F7BBA0;
+}
+.card-unhealthy{
+    background-color: #DD1223;
+    color: #DCDAD6;
+}
+.card-unhealthyfor{
+    background: #F26419;
+    color: #FAFAFA;
+}
+.card-moderate{
+    background-color: #f4c000;
+    color: #FAFAFA;
+}
+.card-good{
+    background-color: #86A845;
+    color: #FAFAFA;
+}
+.card-healthy{
+    background-color: #55A6CB;
+    color: #E5E1E0;
+}
+
+.nav-narrow{
+    padding: 10px 15px;
+}
+
+/*Chart*/
