@@ -1,9 +1,9 @@
 <?php require('dbcon.php');
-	$sth_select = $pdo->prepare("SELECT * FROM tb_data WHERE location = '01' ORDER BY timestamp DESC LIMIT 1");
+	$sth_select = $pdo->prepare("SELECT * FROM tb_data WHERE location = '03' ORDER BY timestamp DESC LIMIT 1");
 	$sth_select->execute();
 	$rows = $sth_select->fetchAll(PDO::FETCH_ASSOC);
 	
-	$sth_g = $pdo->prepare("SELECT pm1, pm25, pm10, timestamp FROM tb_data WHERE location = '01' ORDER BY timestamp DESC LIMIT 228;");
+	$sth_g = $pdo->prepare("SELECT pm1, pm25, pm10, timestamp FROM tb_data WHERE location = '03' ORDER BY timestamp DESC LIMIT 228;");
 	$sth_g->execute();
 	$resulta = $sth_g->fetchAll(\PDO::FETCH_ASSOC);
 	$result = json_encode($resulta);
@@ -300,8 +300,7 @@
                         <i class="ti-location-pin icon-topic"></i>
                         <p>Location</p>
                         <div class="fontbig-2">
-                            10th Floor</be>
-                            Witsawa Watthana Building @KMUTT.
+                           innosoft, CB4@KMUTT.</br>
                         </div>
                     </div>
                     <div class="col-xs-12 text-center" style="margin-top:10px;">
