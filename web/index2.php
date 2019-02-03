@@ -3,7 +3,7 @@ $sth_select = $pdo->prepare("SELECT * FROM tb_data ORDER BY timestamp DESC LIMIT
 $sth_select->execute();
 $rows = $sth_select->fetchAll(PDO::FETCH_ASSOC);
 
-$sth_g = $pdo->prepare("SELECT pm1, pm25, pm10, timestamp FROM tb_data ORDER BY timestamp DESC LIMIT 228;");
+$sth_g = $pdo->prepare("SELECT * FROM tb_sumary WHERE location = 1 ORDER BY timestamp DESC LIMIT 24;"); //SELECT pm1, pm25, pm10, timestamp FROM tb_data ORDER BY timestamp DESC LIMIT 228;
 $sth_g->execute();
 $resulta = $sth_g->fetchAll(\PDO::FETCH_ASSOC);
 $result = json_encode($resulta);
@@ -34,9 +34,8 @@ $result = json_encode($resulta);
 	<meta content='width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=0' name='viewport' />
     <meta name="viewport" content="width=device-width" />
 
-
     <!-- Bootstrap core CSS     -->
-    <link href="assets/css/bootstrap.min.css" rel="stylesheet" />
+    <link href="assets/css/bootstrap4/bootstrap.css" rel="stylesheet" />
 
     <!-- Animation library for notifications   -->
     <link href="assets/css/animate.min.css" rel="stylesheet"/>
@@ -57,49 +56,13 @@ $result = json_encode($resulta);
     <link href="assets/css/icoccac-style.css" rel="stylesheet">
 
 </head>
-<body>
+<body class="body-color">
+<!--
+<div class="wrapper ">
 
-<div class="wrapper">
-
-    <div class="main-panel">
+    <div class="]main-panel">
         <nav class="navbar navbar-default">
-            <div class="container-fluid">
-                <div class="navbar-header">
-                    <a class="navbar-brand " href="#">iCocCac <small> - Air Quality Index (AQI)</small></a>
-                </div>
-                <div class="collapse navbar-collapse">
-                    <ul class="nav navbar-nav navbar-right">
-                        <li>
-                            <a href="#" class="dropdown-toggle" data-toggle="dropdown">
-                                <i class="ti-panel"></i>
-								<p>Stats</p>
-                            </a>
-                        </li>
-                        <li class="dropdown">
-                              <a href="#" class="dropdown-toggle" data-toggle="dropdown">
-                                    <i class="ti-bell"></i>
-                                    <p class="notification">5</p>
-									<p>Notifications</p>
-									<b class="caret"></b>
-                              </a>
-                              <ul class="dropdown-menu">
-                                <li><a href="#">Notification 1</a></li>
-                                <li><a href="#">Notification 2</a></li>
-                                <li><a href="#">Notification 3</a></li>
-                                <li><a href="#">Notification 4</a></li>
-                                <li><a href="#">Another notification</a></li>
-                              </ul>
-                        </li>
-						<li>
-                            <a href="#">
-								<i class="ti-settings"></i>
-								<p>Settings</p>
-                            </a>
-                        </li>
-                    </ul>
-
-                </div>
-            </div>
+                    <a class="navbar-brand " href="#">iCocCac <small> - Air Quality Index (AQI)</small></a> 
         </nav>
 
         <div class="content">
@@ -303,77 +266,8 @@ $result = json_encode($resulta);
                             </div>
                         </div>
                     </div>
-                </div>
-                
-                <div class="row">
-                    <div class="col-xs-12 text-center">
-                        <i class="ti-location-pin icon-topic"></i>
-                        <p>Location</p>
-                        <div class="fontbig-2">
-                            10th Floor</be>
-                            Witsawa Watthana Building @KMUTT.
-                        </div>
-                    </div>
-                    <div class="col-xs-12 text-center" style="margin-top:10px;">
-                        <i class="ti-reload"></i> 
-                            Last Update
-                        <?php
-                        foreach ($rows as $row) {
-                            echo "" . $row['timestamp'] . "";
-                        }
-                        ?></br></br>
-							Air Quality Index (AQI) calculated in <a href="https://en.wikipedia.org/wiki/Air_quality_index#United_States">United States Environmental Protection Agency standard.</a>
-                    </div>
-                </div>
+                </div
 
-               <!-- <div class="row">
-                    <div class="col-md-6">
-                        <div class="card">
-                            <div class="header">
-                                <h4 class="title">Email Statistics</h4>
-                                <p class="category">Last Campaign Performance</p>
-                            </div>
-                            <div class="content">
-                                <div id="chartPreferences" class="ct-chart ct-perfect-fourth"></div>
-
-                                <div class="footer">
-                                    <div class="chart-legend">
-                                        <i class="fa fa-circle text-info"></i> Open
-                                        <i class="fa fa-circle text-danger"></i> Bounce
-                                        <i class="fa fa-circle text-warning"></i> Unsubscribe
-                                    </div>
-                                    <hr>
-                                    <div class="stats">
-                                        <i class="ti-timer"></i> Campaign sent 2 days ago
-                                    </div>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-                    <div class="col-md-6">
-                        <div class="card ">
-                            <div class="header">
-                                <h4 class="title">2015 Sales</h4>
-                                <p class="category">All products including Taxes</p>
-                            </div>
-                            <div class="content">
-                                <div id="chartActivity" class="ct-chart"></div>
-
-                                <div class="footer">
-                                    <div class="chart-legend">
-                                        <i class="fa fa-circle text-info"></i> Tesla Model S
-                                        <i class="fa fa-circle text-warning"></i> BMW 5 Series
-                                    </div>
-                                    <hr>
-                                    <div class="stats">
-                                        <i class="ti-check"></i> Data information certified
-                                    </div>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-				-->
             </div>
         </div>
 
@@ -381,23 +275,6 @@ $result = json_encode($resulta);
             <div class="container-fluid">
                 <nav class="pull-left">
                     <ul>
-<!--
-                        <li>
-                            <a href="http://www.creative-tim.com">
-                                Creative Tim
-                            </a>
-                        </li>
-                        <li>
-                            <a href="http://blog.creative-tim.com">
-                               Blog
-                            </a>
-                        </li>
-                        <li>
-                            <a href="http://www.creative-tim.com/license">
-                                Licenses
-                            </a>
-                        </li>
-						-->
                     </ul>
                 </nav>
                 <div class="copyright set-center">
@@ -410,6 +287,11 @@ $result = json_encode($resulta);
 
     </div>
 </div>
+-->
+    <div class="container body-color">
+
+    </div>
+
 
 <script src="https://cdnjs.cloudflare.com/ajax/libs/Chart.js/2.7.3/Chart.js"></script>
 <script src="https://cdnjs.cloudflare.com/ajax/libs/Chart.js/2.7.3/Chart.min.js"></script>
