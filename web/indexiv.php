@@ -105,7 +105,7 @@ $result = json_encode($resulta);
             <div class="col-12 text-center mt-1">
                 <i class="ti-reload"></i>  Last Update
 
-                <div id=timestamp></div>
+                <i id=timestamp>-</i>
                 <!-- current datetime - timestamp -->
             </div>
         </div>
