@@ -114,7 +114,7 @@ $result = json_encode($resulta);
             <!--CONTENT 1 - PM2.5-->
             <div class="col-12 col-md">
                 <!-- card-healthy , card-good , card-moderate , card-unhealthyfor , card-unhealthy -->
-                <div class="card p-2 m-2 card-good">
+                <div id="card-color" class="card p-2 m-2">
                     <div class="row justify-content-center mt-3">
                         <div class="col-4 col-sm-4 d-block align-self-center">
                             <!-- Picture -->
@@ -504,17 +504,20 @@ $result = json_encode($resulta);
 	<script src="assets/js/demo.js"></script>
 
     <script>
-    var i = 0;
+        // jQuery, Initial html before run the air_data function 
         $(document).ready(air_data());
 
-        function get_air_date(){
+        // get air data from database with get_air_data function
+        function get_air_data(){ 
             $.ajax({
                 type:'GET',
                 url:'db.php',
                 dataType: "json",
-                success:function(data){
-                    if(data.status == 'ok'){
-                        pm25 = data.result.pm25;
+                success:function(data) {
+                    if (data.status == 'ok') {
+
+                        pm25 = data.result.pm25; // Value of pm2.5 as microgram
+
                         $('#pm25').text(data.result.pm25);
                         $('#pm1').text(data.result.pm1);
                         $('#pm10').text(data.result.pm10);
@@ -524,21 +527,39 @@ $result = json_encode($resulta);
                         $('#aqi_pm10').text(data.result.aqi_pm10);
                         $('#location').text(data.result.location);
                         $('#timestamp').text(data.result.timestamp);
-                        i = i + 1;
-                        console.log(i)
-                    }else{
+
+
+                        // Change css class in card-color id 
+                        if (pm25 > 200){
+                            // card-unhealthy
+                            $("#card-color").removeClass('card p-2 m-2').addClass('card p-2 m-2 card-unhealthy');
+                        } else if (pm25 > 100) {
+                            // card-unhealthyfor
+                            $("#card-color").removeClass('card p-2 m-2').addClass('card p-2 m-2 card-unhealthyfor');
+                        } else if (pm25 > 50) {
+                            // card-moderate
+                            $("#card-color").removeClass('card p-2 m-2').addClass('card p-2 m-2 card-moderate');
+                        } else if (pm25 > 25) {
+                            // card-good
+                            $("#card-color").removeClass('card p-2 m-2').addClass('card p-2 m-2 card-good');
+                        } else if (pm25 > 0) {
+                            // card-healthy
+                            $("#card-color").removeClass('card p-2 m-2').addClass('card p-2 m-2 card-healthy');
+                        }
+
+                    } else {
                         alert("not found...");
                     } 
                 }
             });
         }
         
-        
+        // set time to query air data from database every 5 min with air_data function
         function air_data(){
-            get_air_date();
+            get_air_data();
             setInterval(function(){
-                get_air_date();
-            },60*1000);
+                get_air_data();
+            },300*1000); // 1000 ms = 1 s
         }
         
     </script>
