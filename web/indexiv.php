@@ -359,8 +359,6 @@ $result = json_encode($resulta);
             
         </div>
         
-
-        
         
         <!--FOOTER-->
         <footer class="line-gra footer row">
