@@ -1,23 +1,12 @@
 <?php require('dbcon.php');
-<<<<<<< HEAD
-$sth_select = $pdo->prepare("SELECT * FROM tb_data ORDER BY timestamp DESC LIMIT 1");
-$sth_select->execute();
-$rows = $sth_select->fetchAll(PDO::FETCH_ASSOC);
-
-$sth_g = $pdo->prepare("SELECT pm1, pm25, pm10, timestamp FROM tb_data ORDER BY timestamp DESC LIMIT 228;");
-$sth_g->execute();
-$resulta = $sth_g->fetchAll(\PDO::FETCH_ASSOC);
-$result = json_encode($resulta);
-=======
-	$sth_select = $pdo->prepare("SELECT * FROM tb_data WHERE location = '01' ORDER BY timestamp DESC LIMIT 1");
+	$sth_select = $pdo->prepare("SELECT * FROM tb_data WHERE location = '02' ORDER BY timestamp DESC LIMIT 1");
 	$sth_select->execute();
 	$rows = $sth_select->fetchAll(PDO::FETCH_ASSOC);
 	
-	$sth_g = $pdo->prepare("SELECT pm1, pm25, pm10, timestamp FROM tb_data WHERE location = '01' ORDER BY timestamp DESC LIMIT 228;");
+	$sth_g = $pdo->prepare("SELECT pm1, pm25, pm10, timestamp FROM tb_data WHERE location = '02' ORDER BY timestamp DESC LIMIT 228;");
 	$sth_g->execute();
 	$resulta = $sth_g->fetchAll(\PDO::FETCH_ASSOC);
 	$result = json_encode($resulta);
->>>>>>> 7437f52f2fa6cd5b7046b555f0eead5444552d48
 
 
 ?>
@@ -80,15 +69,6 @@ $result = json_encode($resulta);
                 </div>
                 <div class="collapse navbar-collapse">
                     <ul class="nav navbar-nav navbar-right">
-<<<<<<< HEAD
-                        <li>
-                            <a href="#" class="dropdown-toggle" data-toggle="dropdown">
-                                <i class="ti-panel"></i>
-								<p>Stats</p>
-                            </a>
-                        </li>
-=======
->>>>>>> 7437f52f2fa6cd5b7046b555f0eead5444552d48
                         <li class="dropdown">
                               <a href="#" class="dropdown-toggle" data-toggle="dropdown">
                                     <i class="ti-location-pin"></i>
@@ -101,15 +81,6 @@ $result = json_encode($resulta);
 								<li><a href="cb4.php">innosoft, 2nd Floor, CB4</a></li>
                               </ul>
                         </li>
-<<<<<<< HEAD
-						<li>
-                            <a href="#">
-								<i class="ti-settings"></i>
-								<p>Settings</p>
-                            </a>
-                        </li>
-=======
->>>>>>> 7437f52f2fa6cd5b7046b555f0eead5444552d48
                     </ul>
 
                 </div>
@@ -133,9 +104,9 @@ $result = json_encode($resulta);
                                         <div class="index-number">
                                             <p class="m-0">PM 1.0</p>
                                             <?php
-                                            foreach ($rows as $row) {
-                                                echo "" . $row['pm1'] . "";
-                                            }
+												foreach ($rows as $row) {
+													echo "".$row['pm1']."";
+												}
                                             ?>
                                             <p class="m-0">
                                                 <i class="ti-dashboard icon-status"></i><small> µg/m3 </small>
@@ -150,19 +121,19 @@ $result = json_encode($resulta);
                     </div>
                     <div class="col-lg-3 col-md-3 col-sm-6 col-xs-6">
                         <div class="card card-<?php
-                                                if ($row['aqi_pm10'] < 50)
-                                                    echo "good";
-                                                else if ($row['aqi_pm10'] < 100)
-                                                    echo "moderate";
-                                                else if ($row['aqi_pm10'] < 150)
-                                                    echo "unhealthyfor";
-                                                else if ($row['aqi_pm10'] < 200)
-                                                    echo "unhealthy";
-                                                else if ($row['aqi_pm10'] < 300)
-                                                    echo "veryunhealthy";
-                                                else
-                                                    echo "hazardous";
-                                                ?>">
+								if($row['aqi_pm10'] <50)
+									echo "good";
+								else if($row['aqi_pm10'] <100)
+									echo "moderate";
+								else if($row['aqi_pm10'] <150)
+									echo "unhealthyfor";
+								else if($row['aqi_pm10'] <200)
+									echo "unhealthy";
+								else if($row['aqi_pm10'] <300)
+									echo "veryunhealthy";
+								else 
+									echo "hazardous";
+							?>">
                             <div class="content">
                                 <div class="row">
                                     <div class="col-xs-5">
@@ -174,16 +145,16 @@ $result = json_encode($resulta);
                                         <div class="index-number">
                                             <p class="m-0">PM 10.0 AQI</p>
                                             <?php
-                                            foreach ($rows as $row) {
-                                                echo "" . $row['aqi_pm10'] . "";
-                                            }
+												foreach ($rows as $row) {
+													echo "".$row['aqi_pm10']."";
+												}
                                             ?>
                                             <p class="m-0">
                                                 <i class="ti-dashboard icon-status"></i><small> <?php
-                                                                                                foreach ($rows as $row) {
-                                                                                                    echo "" . $row['pm10'] . "";
-                                                                                                }
-                                                                                                ?> µg/m3 </small>
+												foreach ($rows as $row) {
+													echo "".$row['pm10']."";
+												}
+                                            ?> µg/m3 </small>
                                             </p>
                                         </div>
                                     </div>
@@ -206,9 +177,9 @@ $result = json_encode($resulta);
                                         <div class="index-number">
                                             <p class="m-0">Temperature</p>
                                             <?php
-                                            foreach ($rows as $row) {
-                                                echo "" . $row['temp'] . "";
-                                            }
+												foreach ($rows as $row) {
+													echo "".$row['temp']."";
+												}
                                             ?>
                                             <p class="m-0">
                                                 <i class="ti-dashboard icon-status"></i><small> °C </small>
@@ -234,9 +205,9 @@ $result = json_encode($resulta);
                                         <div class="index-number">
                                             <p class="m-0">Humidity</p>
                                             <?php
-                                            foreach ($rows as $row) {
-                                                echo "" . $row['humi'] . "";
-                                            }
+												foreach ($rows as $row) {
+													echo "".$row['humi']."";
+												}
                                             ?>
                                             <p class="m-0">
                                                 <i class="ti-dashboard icon-status"></i><small> % </small>
@@ -254,27 +225,32 @@ $result = json_encode($resulta);
                 <div class="row">
 					<div class="col-lg-3 col-md-3 col-xs-12">
                         <div class="card card-<?php
-                                                $pm25status = " ";
-                                                if ($row['aqi_pm25'] < 50) {
-                                                    echo "good";
-                                                    $pm25status = "Good";
-                                                } else if ($row['aqi_pm25'] < 100) {
-                                                    echo "moderate";
-                                                    $pm25status = "Moderate";
-                                                } else if ($row['aqi_pm25'] < 150) {
-                                                    echo "unhealthyfor";
-                                                    $pm25status = "Unhealthy for Sensitive Groups";
-                                                } else if ($row['aqi_pm25'] < 200) {
-                                                    echo "unhealthy";
-                                                    $pm25status = "Unhealthy";
-                                                } else if ($row['aqi_pm25'] < 300) {
-                                                    echo "veryunhealthy";
-                                                    $pm25status = "Very Unhealthy";
-                                                } else {
-                                                    echo "hazardous";
-                                                    $pm25status = "Hazardous";
-                                                }
-                                                ?>">
+							$pm25status = " ";
+								if($row['aqi_pm25'] <50){
+									echo "good";
+									$pm25status = "Good";
+								}
+								else if($row['aqi_pm25'] <100){
+									echo "moderate";
+									$pm25status = "Moderate";
+								}
+								else if($row['aqi_pm25'] <150){
+									echo "unhealthyfor";
+									$pm25status = "Unhealthy for Sensitive Groups";
+								}
+								else if($row['aqi_pm25'] <200){
+									echo "unhealthy";
+									$pm25status = "Unhealthy";
+								}
+								else if($row['aqi_pm25'] <300){
+									echo "veryunhealthy";
+									$pm25status = "Very Unhealthy";
+								}
+								else {
+									echo "hazardous";
+									$pm25status = "Hazardous";
+								}
+							?>">
                             <div class="content">
                                 <div class="row">
                                     <div class="col-xs-12 text-center">
@@ -282,18 +258,18 @@ $result = json_encode($resulta);
                                         <p class="text-center m-0">PM 2.5 AQI</p>
                                         <div class="fontbig">
 											<?php
-            foreach ($rows as $row) {
-                echo "" . $row['aqi_pm25'] . "";
-            }
-            ?>
+												foreach ($rows as $row) {
+													echo "".$row['aqi_pm25']."";
+												}
+											?>
                                         </div>
                                         <p class="m-0">
                                             <i class="ti-dashboard icon-status"></i><small> <?php
-                                                                                            foreach ($rows as $row) {
-                                                                                                echo "" . $row['pm25'] . "";
-                                                                                            }
-                                                                                            ?> µg/m3 </small></br>
-											<?php echo $pm25status; ?>
+												foreach ($rows as $row) {
+													echo "".$row['pm25']."";
+												}
+											?> µg/m3 </small></br>
+											<?php echo $pm25status ;?>
                                         </p>
                                     </div>
                                 </div>
@@ -324,27 +300,20 @@ $result = json_encode($resulta);
                         <i class="ti-location-pin icon-topic"></i>
                         <p>Location</p>
                         <div class="fontbig-2">
-                            10th Floor</be>
-                            Witsawa Watthana Building @KMUTT.
+                            Chemical Engineering Building @KMUTT.</br>
+							(The Side of a Football field)
                         </div>
                     </div>
                     <div class="col-xs-12 text-center" style="margin-top:10px;">
                         <i class="ti-reload"></i> 
                             Last Update
                         <?php
-<<<<<<< HEAD
-                        foreach ($rows as $row) {
-                            echo "" . $row['timestamp'] . "";
-                        }
-                        ?></br></br>
-=======
                                 foreach ($rows as $row) {
                                 	echo "".$row['timestamp']."";
                                 }
                             ?></br></br>
 							Location:  <a href="index.php">10th Floor, Witsawa Watthana</a>  |  <a href="che.php">Chemical Engineering Building</a>  |  <a href="cb4.php">innosoft, 2nd Floor, CB4</a>
 							</br></br>
->>>>>>> 7437f52f2fa6cd5b7046b555f0eead5444552d48
 							Air Quality Index (AQI) calculated in <a href="https://en.wikipedia.org/wiki/Air_quality_index#United_States">United States Environmental Protection Agency standard.</a>
                     </div>
                 </div>
