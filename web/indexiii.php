@@ -3,7 +3,7 @@ $sth_select = $pdo->prepare("SELECT * FROM tb_data ORDER BY timestamp DESC LIMIT
 $sth_select->execute();
 $rows = $sth_select->fetchAll(PDO::FETCH_ASSOC);
 
-$sth_g = $pdo->prepare("SELECT * FROM tb_sumary WHERE location = 1 ORDER BY timestamp DESC LIMIT 24;"); //SELECT pm1, pm25, pm10, timestamp FROM tb_data ORDER BY timestamp DESC LIMIT 228;
+$sth_g = $pdo->prepare("SELECT * FROM tb_summary WHERE location = 1 ORDER BY timestamp DESC LIMIT 24;"); //SELECT pm1, pm25, pm10, timestamp FROM tb_data ORDER BY timestamp DESC LIMIT 228;
 $sth_g->execute();
 $resulta = $sth_g->fetchAll(\PDO::FETCH_ASSOC);
 $result = json_encode($resulta);
@@ -116,32 +116,41 @@ $result = json_encode($resulta);
         <div class="row">
             <!--CONTENT 1 - PM2.5-->
             <div class="col-12 col-md">
-                <div class="card p-2 m-2 card-moderate">
+                <!-- card-healthy , card-good , card-moderate , card-unhealthyfor , card-unhealthy -->
+                <div class="card p-2 m-2 card-good">
                     <div class="row justify-content-center mt-3">
-                        <div class="col-6 col-sm-4 d-block align-self-center">
+                        <div class="col-4 col-sm-4 d-block align-self-center">
                             <!-- Picture -->
                             <div class="row justify-content-center">
-                                <!--<i class="wi wi-day-snow-wind" style="font-size:8vw;line-height: normal;"></i>-->
-                                <img src="assets/img/ic-face-2-yellow.png" class="img-fluid">
+                                <!-- fa-smile-beam , fa-smile , fa-meh , fa-sad-tear , fa-sad-cry-->
+                                <i class="far fa-smile d-none d-lg-block" style="font-size:8vw;line-height: normal;"></i>
+                                <i class="far fa-smile d-block d-lg-none" style="font-size:18vw;line-height: normal;"></i>
+
+                                <!--<img src="assets/img/ic-face-2-yellow.png" class="img-fluid">-->
                             </div>
                         </div>
-                        <div class="col-6 col-sm-3">
+                        <div class="col-5 col-sm-3">
                             <div class="row justify-content-center">
                                 <h2> PM2.5 </h2>
                             </div>
                             <!-- AQI -->
                             <div class="row justify-content-center md-2">
-                                <h1 class="mb-0" style="font-size:5em">90</h1>
+                                <h1 class="mb-0" style="font-size:5em"> 14 </h1>
                             </div>
                             <div class="row justify-content-center mb-2">
-                                <h6>US AQI <sup><i class="far fa-question-circle summer"></i></sup> </h6>
+                                <h6>( Density <small><i class="wi wi-sandstorm rain"></i></small> µg/m<sup>3</sup> ) 
+                                <sup><a data-toggle="collapse" href="#collapseTable" role="button" aria-expanded="false" aria-controls="collapseTable">
+                                    <i data-toggle="tooltip" data-placement="bottom" title="เทียบคุณภาพอากาศมาตราฐานกรมควบคุมมลพิษ"class="far fa-question-circle whale"></i>
+                                    </a></sup> </h6>
                             </div>
                         </div>  
+
                         <div class="col-10 col-sm-4 d-flex align-items-center">
                             <!-- Level and Density -->
-                            <div class="row d-block  w-100 text-center mb-2">
-                                <h3>Moderate</h3>
-                                <h5>( Density <small><i class="wi wi-sandstorm rain"></i></small> <strong>30</strong> µg/m<sup>3</sup> )</h5>
+                            <!-- คุณภาพอากาศดีมาก , คุณภาพอากาศดี , ปานกลาง , เริ่มมีผลกระทบต่อสุขภาพ , มีผลกระทบต่อสุขภาพ -->
+                            <div class="row d-block  w-100 text-center mb-2 thai">
+                                <h3>คุณภาพอากาศดี</h3>
+                                <h5></h5>
                             </div>     
                         </div>                 
                     </div>
@@ -149,21 +158,121 @@ $result = json_encode($resulta);
                     <div class="row justify-content-center mb-2">
                     </div>
                     
-                    <!-- Description - ENGLISH -->
-                    <div class="row justify-content-center mb-2">
-                        <div class="col-10 text-center">
-                            <h6> Air quality is acceptable and poses little health risk. Sensitive groups may experience mild adverse effects and should limit prolonged outdoor exposure. </h6>
+                        <!-- Description - ENGLISH -->
+                        <!--
+                        <div class="row justify-content-center mb-2">
+                            <div class="col-10 text-center">
+                                
+                            </div>
                         </div>
-                    </div>
-                    <!-- Description - THAI -->                    
+                        -->
+
+                    <!-- Description - THAI -->
+                    <!-- Very Good -->
+                    <!--
                     <div class="row justify-content-center mb-2">
                         <div class="col-10 text-center thai">
-                            <h6> ประชาชนทั่วไป : สามารถทำกิจกรรมกลางแจ้งได้ตามปกติ <br>
-                                ผู้ที่ต้องดูแลสุขภาพเป็นพิเศษ : หากมีอาการเบื้องต้น เช่น ไอ หายใจลำบาก ระคายเคืองตา ควรลดระยะเวลาการทำกิจกรรมกลางแจ้ง </h6>
+                            <h5>คุณภาพอากาศดีมาก เหมาะสำหรับกิจกรรมกลางแจ้ง และ การท่องเที่ยว </h5>
                         </div>
                     </div>
+                    -->
+                    <!-- Good -->
+                    <div class="row justify-content-center mb-2">
+                        <div class="col-10 text-center thai">
+                            <h5> คุณภาพอากาศดี สามารถทำกิจกรรมกลางแจ้ง และ <br> การท่องเที่ยวได้ตามปกติ </h5>
+                        </div>
+                    </div>
+                    <!-- Moderate -->
+                    <!--
+                    <div class="row justify-content-center mb-2">
+                        <div class="col-10 text-center thai">
+                            <h5><strong>ประชาชนทั่วไป</strong> : สามารถทำกิจกรรมกลางแจ้งได้ตามปกติ <br>
+                                <strong>ผู้ที่ต้องดูแลสุขภาพเป็นพิเศษ</strong> : หากมีอาการเบื้องต้น เช่น ไอ หายใจลำบาก ระคายเคืองตา ควรลดระยะเวลาการทำกิจกรรมกลางแจ้ง </h5>
+                        </div>
+                    </div>
+                    -->
+                    <!-- Unhealthy for sensitive -->
+                    <!--
+                    <div class="row justify-content-center mb-2">
+                        <div class="col-10 text-center thai">
+                            <h5><strong>ประชาชนทั่วไป</strong> : ควรเฝ้าระวังสุขภาพ ถ้ามีอาการเบื้องต้น เช่น ไอ หายใจลำบาก ระคายเคืองตา ควรลดระยะเวลาการทำกิจกรรมกลางแจ้ง หรือใช้อุปกรณ์ป้องกันตนเองหากมีความจำเป็น <br><br>
+                                <strong>ผู้ที่ต้องดูแลสุขภาพเป็นพิเศษ</strong> : ควรลดระยะเวลาการทำกิจกรรมกลางแจ้ง หรือใช้อุปกรณ์ป้องกันตนเองหากมีความจำเป็น <br>
+                                ถ้ามีอาการทางสุขภาพ เช่น ไอ หายใจลำบาก ตาอักเสบ แน่นหน้าอก ปวดศีรษะ หัวใจเต้นไม่เป็นปกติ คลื่นไส้ อ่อนเพลีย ควรปรึกษาแพทย์</h5>
+                        </div>
+                    </div>
+                    -->
+                    <!-- Unhealthy -->
+                    <!--
+                    <div class="row justify-content-center mb-2">
+                        <div class="col-10 text-center thai">
+                            <h5> <strong>ทุกคนควรหลีกเลี่ยง</strong>กิจกรรมกลางแจ้งทุกชนิด หลีกเลี่ยงพื้นที่ที่มีมลพิษทางอากาศสูง <br>
+                            หรือใช้อุปกรณ์ป้องกันตนเองหากมีความจำเป็น หากมีอาการทางสุขภาพควรปรึกษาแพทย์ </h5>
+                        </div>
+                    </div>
+                    -->
+
                 </div>
-                
+
+                <div class="collapse" id="collapseTable">
+                    <div class="card card-body p-3 m-2 mt-3 thai">
+                        <h4>เกณฑ์ของดัชนีคุณภาพอากาศของประเทศไทย</h4>
+                        <h6>ข้อมูลอ้างอิงจาก <a href="http://air4thai.pcd.go.th/webV2/aqi_info.php">กองจัดการคุณภาพของอากาศและเสียง กรมควบคุมมลพิษ</a></h6>
+                        <table class="table table-responsive-sm table-hover">
+                            <thead>
+                                <tr class="text-center">
+                                <th scope="col" width="15%">AQI</th>
+                                <th scope="col" width="20%">ความหมาย</th>
+                                <th scope="col" width="15%">PM<sub><small>2.5</small></sub></th>
+                                <th scope="col" width="50%">ข้อความแจ้งเตือน</th>
+                                </tr>
+                            </thead>
+                            <tbody>
+                                <tr>
+                                    <td class="bg-sky text-coal text-center">0 - 25</td>
+                                    <td class="text-center">คุณภาพอากาศดีมาก</td>
+                                    <td class="text-center">0 - 25</td>
+                                    <td align="left">คุณภาพอากาศดีมาก เหมาะสำหรับกิจกรรมกลางแจ้งและการท่องเที่ยว</td>
+                                </tr>
+                                <tr>
+                                    <td class="bg-leaf text-coal text-center">26 - 50</td>
+                                    <td class="text-center">คุณภาพอากาศดี</td>
+                                    <td class="text-center">26 - 37</td>
+                                    <td align="left">คุณภาพอากาศดี สามารถทำกิจกรรมกลางแจ้งและการท่องเที่ยวได้ตามปกติ</td>   
+                                </tr>
+                                <tr>
+                                    <td class="bg-star text-coal text-center">51 - 100</td>
+                                    <td class="text-center">ปานกลาง</td>
+                                    <td class="text-center">38 - 50</td>
+                                    <td align="left"><u>ประชาชนทั่วไป :</u> สามารถทำกิจกรรมกลางแจ้งได้ตามปกติ<br />
+                                        <u>ผู้ที่ต้องดูแลสุขภาพเป็นพิเศษ :</u> หากมีอาการเบื้องต้น เช่น ไอ หายใจลำบาก ระคายเคืองตา ควรลดระยะเวลาการทำกิจกรรมกลางแจ้ง
+                                    </td>
+                                </tr>
+                                <tr>
+                                    <td class="bg-sohot text-cloud text-center">101 - 200</td>
+                                    <td class="text-center">เริ่มมีผลกระทบต่อสุขภาพ</td>
+                                    <td class="text-center">51 - 90</td>
+                                    <td align="left">
+                                        <u>ประชาชนทั่วไป :</u> ควรเฝ้าระวังสุขภาพ ถ้ามีอาการเบื้องต้น เช่น ไอ หายใจลำบาก ระคายเคืองตา 
+                                        ควรลดระยะเวลาการทำกิจกรรมกลางแจ้ง หรือใช้อุปกรณ์ป้องกันตนเองหากมีความจำเป็น<br />
+                                        <u>ผู้ที่ต้องดูแลสุขภาพเป็นพิเศษ :</u> 
+                                        ควรลดระยะเวลาการทำกิจกรรมกลางแจ้ง หรือใช้อุปกรณ์ป้องกันตนเองหากมีความจำเป็น ถ้ามีอาการทางสุขภาพ เช่น 
+                                        ไอ หายใจลำบาก ตาอักเสบ แน่นหน้าอก ปวดศีรษะ หัวใจเต้นไม่เป็นปกติ คลื่นไส้ อ่อนเพลีย ควรปรึกษาแพทย์
+                                    </td>
+                                </tr>
+                                <tr>
+                                    <td class="bg-ruby text-cloud text-center">201 ขึ้นไป </td>
+                                    <td class="text-center">มีผลกระทบต่อสุขภาพ</td>
+                                    <td class="text-center">91 ขึ้นไป</td>
+                                    <td align="left">
+                                        ทุกคนควรหลีกเลี่ยงกิจกรรมกลางแจ้งทุก หลีกเลี่ยงพื้นที่ที่มีมลพิษทางอากาศสูง 
+                                        หรือใช้อุปกรณ์ป้องกันตนเองหากมีความจำเป็น หากมีอาการทางสุขภาพควรปรึกษาแพทย์
+                                    </td>
+                                </tr>
+                            </tbody>
+                        </table>
+                    </div>
+                </div>
+
             </div>
             <!--/ CONTENT 1-->
             
@@ -224,7 +333,6 @@ $result = json_encode($resulta);
                 <!--/ CONTENT 3-->
             </div>
             
-            
         </div>
         
 
@@ -243,6 +351,7 @@ $result = json_encode($resulta);
 
     <script src="https://cdnjs.cloudflare.com/ajax/libs/Chart.js/2.6.0/Chart.min.js">></script>
     <script type="text/javascript">
+
         var ctx = document.getElementById("myChart").getContext("2d");
         var width = window.innerWidth || document.body.clientWidth;
         var gradientStroke = ctx.createLinearGradient(500, 0, 100, 0);
@@ -370,10 +479,19 @@ $result = json_encode($resulta);
 
     <!--   Core JS Files   -->
     <script src="assets/js/jquery.min.js" type="text/javascript"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.3/umd/popper.min.js"></script>
 	<script src="assets/js/bootstrap4/bootstrap.min.js" type="text/javascript"></script>
+
+    <script type="text/javascript">
+        $(function () {
+            $('[data-toggle="tooltip"]').tooltip()
+        })
+    </script>
 
 	<!--  Checkbox, Radio & Switch Plugins -->
 	<script src="assets/js/bootstrap-checkbox-radio.js"></script>
+
+	<!--  Charts Plugin -->
 
     <!--  Notifications Plugin    -->
     <script src="assets/js/bootstrap-notify.js"></script>
