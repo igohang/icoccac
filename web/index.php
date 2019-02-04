@@ -1,23 +1,12 @@
 <?php require('dbcon.php');
-<<<<<<< HEAD
-$sth_select = $pdo->prepare("SELECT * FROM tb_data ORDER BY timestamp DESC LIMIT 1");
+$sth_select = $pdo->prepare("SELECT * FROM tb_data WHERE location = '01' ORDER BY timestamp DESC LIMIT 1");
 $sth_select->execute();
 $rows = $sth_select->fetchAll(PDO::FETCH_ASSOC);
 
-$sth_g = $pdo->prepare("SELECT pm1, pm25, pm10, timestamp FROM tb_data ORDER BY timestamp DESC LIMIT 228;");
+$sth_g = $pdo->prepare("SELECT pm1, pm25, pm10, timestamp FROM tb_data WHERE location = '01' ORDER BY timestamp DESC LIMIT 228;");
 $sth_g->execute();
 $resulta = $sth_g->fetchAll(\PDO::FETCH_ASSOC);
 $result = json_encode($resulta);
-=======
-	$sth_select = $pdo->prepare("SELECT * FROM tb_data WHERE location = '01' ORDER BY timestamp DESC LIMIT 1");
-	$sth_select->execute();
-	$rows = $sth_select->fetchAll(PDO::FETCH_ASSOC);
-	
-	$sth_g = $pdo->prepare("SELECT pm1, pm25, pm10, timestamp FROM tb_data WHERE location = '01' ORDER BY timestamp DESC LIMIT 228;");
-	$sth_g->execute();
-	$resulta = $sth_g->fetchAll(\PDO::FETCH_ASSOC);
-	$result = json_encode($resulta);
->>>>>>> 7437f52f2fa6cd5b7046b555f0eead5444552d48
 
 
 ?>
@@ -80,15 +69,6 @@ $result = json_encode($resulta);
                 </div>
                 <div class="collapse navbar-collapse">
                     <ul class="nav navbar-nav navbar-right">
-<<<<<<< HEAD
-                        <li>
-                            <a href="#" class="dropdown-toggle" data-toggle="dropdown">
-                                <i class="ti-panel"></i>
-								<p>Stats</p>
-                            </a>
-                        </li>
-=======
->>>>>>> 7437f52f2fa6cd5b7046b555f0eead5444552d48
                         <li class="dropdown">
                               <a href="#" class="dropdown-toggle" data-toggle="dropdown">
                                     <i class="ti-location-pin"></i>
@@ -101,15 +81,6 @@ $result = json_encode($resulta);
 								<li><a href="cb4.php">innosoft, 2nd Floor, CB4</a></li>
                               </ul>
                         </li>
-<<<<<<< HEAD
-						<li>
-                            <a href="#">
-								<i class="ti-settings"></i>
-								<p>Settings</p>
-                            </a>
-                        </li>
-=======
->>>>>>> 7437f52f2fa6cd5b7046b555f0eead5444552d48
                     </ul>
 
                 </div>
@@ -332,19 +303,12 @@ $result = json_encode($resulta);
                         <i class="ti-reload"></i> 
                             Last Update
                         <?php
-<<<<<<< HEAD
                         foreach ($rows as $row) {
                             echo "" . $row['timestamp'] . "";
                         }
                         ?></br></br>
-=======
-                                foreach ($rows as $row) {
-                                	echo "".$row['timestamp']."";
-                                }
-                            ?></br></br>
 							Location:  <a href="index.php">10th Floor, Witsawa Watthana</a>  |  <a href="che.php">Chemical Engineering Building</a>  |  <a href="cb4.php">innosoft, 2nd Floor, CB4</a>
 							</br></br>
->>>>>>> 7437f52f2fa6cd5b7046b555f0eead5444552d48
 							Air Quality Index (AQI) calculated in <a href="https://en.wikipedia.org/wiki/Air_quality_index#United_States">United States Environmental Protection Agency standard.</a>
                     </div>
                 </div>
@@ -537,3 +501,4 @@ $result = json_encode($resulta);
 
 
 </html>
+S

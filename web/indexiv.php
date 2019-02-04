@@ -69,21 +69,23 @@ $result = json_encode($resulta);
                 <ul class="navbar-nav w-100 justify-content-center">
                     <li class="nav-item active">
                         <div class="text-center">
+                            <!--
                             <span class="badge badge-dark badge-pill">
                                 iConnex by iGohang
                             </span>
+                            -->
                         </div>
                     </li>
                 </ul>
                 <ul class="nav navbar-nav ml-auto w-100 justify-content-end">
                     <li class="nav-item">
-                        <a class="nav-link" href="#">A<span class="sup">2</span></a>
+                        <a class="nav-link" href="https://www.facebook.com/a2laboratory">A<span class="sup">2</span></a>
                     </li>
                     <li class="nav-item">
-                        <a class="nav-link" href="#">CPE</a>
+                        <a class="nav-link" href="http://cpe.kmutt.ac.th/en/index">CPE</a>
                     </li>
                     <li class="nav-item">
-                        <a class="nav-link" href="#">KMUTT</a>
+                        <a class="nav-link" href="http://www2.kmutt.ac.th/">KMUTT</a>
                     </li>
                 </ul>
             </div>
@@ -94,17 +96,30 @@ $result = json_encode($resulta);
         <div class="row mb-3">
             <div class="col-12 text-center">
                 <i class="ti-location-pin icon-topic"></i>
-                
                 <div class="mt-2">
-                    <h4>
+                    <!-- Current Location -->
+                    <h4 class="d-inline">
                     10th Floor 
                     Witsawa Watthana Building @KMUTT.
                     </h4>
+                    <!-- Location Selecting -->
+                    <div class="dropdown d-inline ml-3">
+                        <a href="#" class="text-coal" data-toggle="dropdown"> <!--dropdown-toggle -->
+                            <!--<b class="caret"></b>-->
+                            <i class="fas fa-chevron-down"></i>
+                        </a>
+                        <!-- Locations List -->
+                        <ul class="dropdown-menu dropdown-menu-right">
+                            <li><a class="nav-link text-coal" href="index.php">10th Floor, Witsawa Watthana</a></li>
+                            <li><a class="nav-link text-coal" href="che.php">Chemical Engineering Building</a></li>
+                            <li><a class="nav-link text-coal" href="cb4.php">innosoft, 2nd Floor, CB4</a></li>
+                        </ul>
+                    </div>
                 </div>
             </div>
+
             <div class="col-12 text-center mt-1">
                 <i class="ti-reload"></i>  Last Update
-
                 <i id=timestamp>-</i>
                 <!-- current datetime - timestamp -->
             </div>
@@ -137,7 +152,7 @@ $result = json_encode($resulta);
                             <div class="row justify-content-center mb-2">
                                 <h6>( Density <small><i class="wi wi-sandstorm rain"></i></small> µg/m<sup>3</sup> ) 
                                 <sup><a data-toggle="collapse" href="#collapseTable" role="button" aria-expanded="false" aria-controls="collapseTable">
-                                    <i data-toggle="tooltip" data-placement="bottom" title="เทียบคุณภาพอากาศมาตราฐานกรมควบคุมมลพิษ"class="far fa-question-circle whale"></i>
+                                    <i data-toggle="tooltip" data-placement="bottom" title="เทียบคุณภาพอากาศมาตราฐานกรมควบคุมมลพิษ"class="fas fa-info-circle violance"></i>
                                     </a></sup> </h6>
                             </div>
                         </div>  
@@ -154,15 +169,6 @@ $result = json_encode($resulta);
                     
                     <div class="row justify-content-center mb-2">
                     </div>
-                    
-                        <!-- Description - ENGLISH -->
-                        <!--
-                        <div class="row justify-content-center mb-2">
-                            <div class="col-10 text-center">
-                                
-                            </div>
-                        </div>
-                        -->
 
                     <!-- Description - THAI -->
                     <!-- Very Good -->
@@ -210,10 +216,13 @@ $result = json_encode($resulta);
 
                 </div>
 
+                <!--CONTENT 5 - INDEX-->
                 <div class="collapse" id="collapseTable">
-                    <div class="card card-body p-3 m-2 mt-3 thai">
+                    <div class="card card-body p-3 m-2 mt-4 thai">
                         <h4>เกณฑ์ของดัชนีคุณภาพอากาศของประเทศไทย</h4>
-                        <h6>ข้อมูลอ้างอิงจาก <a href="http://air4thai.pcd.go.th/webV2/aqi_info.php">กองจัดการคุณภาพของอากาศและเสียง กรมควบคุมมลพิษ</a></h6>
+                        <h6><i class="far fa-folder-open"></i>  
+                               ข้อมูลอ้างอิงจาก <a href="http://air4thai.pcd.go.th/webV2/aqi_info.php">กองจัดการคุณภาพของอากาศและเสียง กรมควบคุมมลพิษ</a>
+                        </h6>
                         <table class="table table-responsive-sm table-hover">
                             <thead>
                                 <tr class="text-center">
@@ -269,6 +278,7 @@ $result = json_encode($resulta);
                         </table>
                     </div>
                 </div>
+                <!--/CONTENT 5 - INDEX-->
 
             </div>
             <!--/ CONTENT 1-->
@@ -299,7 +309,7 @@ $result = json_encode($resulta);
                     <div class="col-6 col-md-3 px-1 my-1">
                         <div class="lleb-temperature">
                             <div class="row left-status"><h5> <small><i class="fas fa-temperature-high sky"></i></small> Temperature  </h5></div>
-                            <div class="row left-status"><h2><div id="temp">-</div><sup>o</sup>c</h2></div>
+                            <div class="row left-status"><h2><div id="temp" class="d-inline">-</div><small><sup>o</sup>c</small></h2></div>
                             <div class="row left-status"> </div>
                         </div>
                     </div>
@@ -307,7 +317,7 @@ $result = json_encode($resulta);
                     <div class="col-6 col-md-3 px-1 my-1">
                         <div class="lleb-humidity">
                             <div class="row left-status"><h5> <i class="wi wi-raindrop tree"></i> Humidity </h5></div>
-                            <div class="row left-status"><h2><div id="humi">-</div><small>%</small></h2></div>
+                            <div class="row left-status"><h2><div id="humi" class="d-inline">-</div><small>%</small></h2></div>
                             <div class="row left-status"> </div>
                         </div>
                     </div>
@@ -328,6 +338,23 @@ $result = json_encode($resulta);
                     </div>
                 </div>
                 <!--/ CONTENT 3-->
+
+                <!--CONTENT 4 - TOOLS-->
+                <div class="row">
+                    <div class="col-12">
+                        <div class="card card-body p-3 mt-2 thai">
+                            <h4>เครื่องหมายวัดคุณภาพอากาศ</h4>
+                            <h6><i class="far fa-list-alt"></i>
+                                   สนับสนุนโดย ... </h6>
+                            <hr>
+                            <p class="thai py-0">
+                                ...
+                            </p>
+                        </div>
+                    </div>
+                </div>
+                <!--/CONTENT 4 - TOOLS-->
+
             </div>
             
         </div>

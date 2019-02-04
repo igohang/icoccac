@@ -113,8 +113,10 @@ body {
     display: block;
 }
 #cloud{
+    /*
     height: 100vh;
     width: 100vw;
+    */
     /*background: linear-gradient(180deg, #e3ffe766 0%, #d9e7ffdd 100%);*/
     background: #ECE9E6;  /* fallback for old browsers */
     background: -webkit-linear-gradient(to bottom, #FFFFFF,#ECE9E6 );  /* #ECE9E6Chrome 10-25, Safari 5.1-6 */
@@ -190,7 +192,14 @@ body {
     padding: 10px 15px;
 }
 
-
+/*Dropdown*/
+.dropdown-menu{
+    min-width: 200px !important;
+    margin-top:10px !important;
+}
+.dropdown-menu a:hover{
+    color: #008EA0;
+}
 
 /*Chart*/
 
