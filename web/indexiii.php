@@ -474,6 +474,13 @@ $result = json_encode($resulta);
 
 
         });
+        /*
+        Graph
+        http://jsfiddle.net/4vobe59a/
+        https://blog.vanila.io/chart-js-tutorial-how-to-make-gradient-line-chart-af145e5c92f9
+        https://medium.com/@ValeriaCortezVD/tutorial-this-is-why-you-should-use-gradient-charts-with-chart-js-f5be20e39c92
+        
+        */
     </script>
 </body>
 

@@ -127,7 +127,7 @@ $result = json_encode($resulta);
         <!--/ CONTENT 0-->
         <div class="row">
             <!--CONTENT 1 - PM2.5-->
-            <div class="col-12 col-md">
+            <div class="col-12 col-lg">
                 <!-- card-healthy , card-good , card-moderate , card-unhealthyfor , card-unhealthy -->
                 <div id="card-color" class="card p-2 m-2">
                     <div class="row justify-content-center mt-3">
@@ -149,11 +149,11 @@ $result = json_encode($resulta);
                             <div class="row justify-content-center md-2">
                                 <h1 id="pm25" class="mb-0" style="font-size:5em">-</h1>
                             </div>
-                            <div class="row justify-content-center mb-2">
+                            <div class="row justify-content-center mb-2 text-center">
                                 <h6>( Density <small><i class="wi wi-sandstorm rain"></i></small> µg/m<sup>3</sup> ) 
-                                <sup><a data-toggle="collapse" href="#collapseTable" role="button" aria-expanded="false" aria-controls="collapseTable">
+                                <sup><!--<a data-toggle="collapse" href="#collapseTable" role="button" aria-controls="collapseTable">-->
                                     <i data-toggle="tooltip" data-placement="bottom" title="เทียบคุณภาพอากาศมาตราฐานกรมควบคุมมลพิษ"class="fas fa-info-circle violance"></i>
-                                    </a></sup> </h6>
+                                    <!--</a>--></sup> </h6>
                             </div>
                         </div>  
 
@@ -217,65 +217,78 @@ $result = json_encode($resulta);
                 </div>
 
                 <!--CONTENT 5 - INDEX-->
-                <div class="collapse" id="collapseTable">
-                    <div class="card card-body p-3 m-2 mt-4 thai">
-                        <h4>เกณฑ์ของดัชนีคุณภาพอากาศของประเทศไทย</h4>
-                        <h6><i class="far fa-folder-open"></i>  
-                               ข้อมูลอ้างอิงจาก <a href="http://air4thai.pcd.go.th/webV2/aqi_info.php">กองจัดการคุณภาพของอากาศและเสียง กรมควบคุมมลพิษ</a>
-                        </h6>
-                        <table class="table table-responsive-sm table-hover">
-                            <thead>
-                                <tr class="text-center">
-                                <th scope="col" width="15%">AQI</th>
-                                <th scope="col" width="20%">ความหมาย</th>
-                                <th scope="col" width="15%">PM<sub><small>2.5</small></sub></th>
-                                <th scope="col" width="50%">ข้อความแจ้งเตือน</th>
-                                </tr>
-                            </thead>
-                            <tbody>
-                                <tr>
-                                    <td class="bg-sky text-coal text-center">0 - 25</td>
-                                    <td class="text-center">คุณภาพอากาศดีมาก</td>
-                                    <td class="text-center">0 - 25</td>
-                                    <td align="left">คุณภาพอากาศดีมาก เหมาะสำหรับกิจกรรมกลางแจ้งและการท่องเที่ยว</td>
-                                </tr>
-                                <tr>
-                                    <td class="bg-leaf text-coal text-center">26 - 50</td>
-                                    <td class="text-center">คุณภาพอากาศดี</td>
-                                    <td class="text-center">26 - 37</td>
-                                    <td align="left">คุณภาพอากาศดี สามารถทำกิจกรรมกลางแจ้งและการท่องเที่ยวได้ตามปกติ</td>   
-                                </tr>
-                                <tr>
-                                    <td class="bg-star text-coal text-center">51 - 100</td>
-                                    <td class="text-center">ปานกลาง</td>
-                                    <td class="text-center">38 - 50</td>
-                                    <td align="left"><u>ประชาชนทั่วไป :</u> สามารถทำกิจกรรมกลางแจ้งได้ตามปกติ<br />
-                                        <u>ผู้ที่ต้องดูแลสุขภาพเป็นพิเศษ :</u> หากมีอาการเบื้องต้น เช่น ไอ หายใจลำบาก ระคายเคืองตา ควรลดระยะเวลาการทำกิจกรรมกลางแจ้ง
-                                    </td>
-                                </tr>
-                                <tr>
-                                    <td class="bg-sohot text-cloud text-center">101 - 200</td>
-                                    <td class="text-center">เริ่มมีผลกระทบต่อสุขภาพ</td>
-                                    <td class="text-center">51 - 90</td>
-                                    <td align="left">
-                                        <u>ประชาชนทั่วไป :</u> ควรเฝ้าระวังสุขภาพ ถ้ามีอาการเบื้องต้น เช่น ไอ หายใจลำบาก ระคายเคืองตา 
-                                        ควรลดระยะเวลาการทำกิจกรรมกลางแจ้ง หรือใช้อุปกรณ์ป้องกันตนเองหากมีความจำเป็น<br />
-                                        <u>ผู้ที่ต้องดูแลสุขภาพเป็นพิเศษ :</u> 
-                                        ควรลดระยะเวลาการทำกิจกรรมกลางแจ้ง หรือใช้อุปกรณ์ป้องกันตนเองหากมีความจำเป็น ถ้ามีอาการทางสุขภาพ เช่น 
-                                        ไอ หายใจลำบาก ตาอักเสบ แน่นหน้าอก ปวดศีรษะ หัวใจเต้นไม่เป็นปกติ คลื่นไส้ อ่อนเพลีย ควรปรึกษาแพทย์
-                                    </td>
-                                </tr>
-                                <tr>
-                                    <td class="bg-ruby text-cloud text-center">201 ขึ้นไป </td>
-                                    <td class="text-center">มีผลกระทบต่อสุขภาพ</td>
-                                    <td class="text-center">91 ขึ้นไป</td>
-                                    <td align="left">
-                                        ทุกคนควรหลีกเลี่ยงกิจกรรมกลางแจ้งทุก หลีกเลี่ยงพื้นที่ที่มีมลพิษทางอากาศสูง 
-                                        หรือใช้อุปกรณ์ป้องกันตนเองหากมีความจำเป็น หากมีอาการทางสุขภาพควรปรึกษาแพทย์
-                                    </td>
-                                </tr>
-                            </tbody>
-                        </table>
+                <div class="panel-group" id="accordion" role="tablist" aria-multiselectable="true">
+                    <div class="panel">
+                        <div class="col-md-12 d-block d-md-none"> <!--visible-xs-->
+                            <p>
+                                <button data-parent="#accordion" class="btn btn-outline-secondary btn-block thai" type="button" data-toggle="collapse" 
+                                data-target="#collapseTable" aria-expanded="false" aria-controls="collapseTable">
+                                เกณฑ์ของดัชนีคุณภาพอากาศของประเทศไทย <i class="fas fa-chevron-down"></i>
+                                </button>
+                            </p>
+                        </div>
+                        <!--<a data-toggle="collapse" href="#collapseTable" role="button" aria-expanded="false" aria-controls="collapseTable">-->
+                        <div class="div-collapse collapse" id="collapseTable">
+                            <div class="card card-body p-3 m-2 thai">
+                                <h4>เกณฑ์ของดัชนีคุณภาพอากาศของประเทศไทย</h4>
+                                <h6><i class="far fa-folder-open"></i>  
+                                    ข้อมูลอ้างอิงจาก <a href="http://air4thai.pcd.go.th/webV2/aqi_info.php">กองจัดการคุณภาพของอากาศและเสียง กรมควบคุมมลพิษ</a>
+                                </h6>
+                                <table class="table table-responsive-sm table-hover">
+                                    <thead>
+                                        <tr class="text-center">
+                                        <th scope="col" width="15%">AQI</th>
+                                        <th scope="col" width="20%">ความหมาย</th>
+                                        <th scope="col" width="15%">PM<sub><small>2.5</small></sub></th>
+                                        <th scope="col" width="50%">ข้อความแจ้งเตือน</th>
+                                        </tr>
+                                    </thead>
+                                    <tbody>
+                                        <tr>
+                                            <td class="bg-sky text-coal text-center">0 - 25</td>
+                                            <td class="text-center">คุณภาพอากาศดีมาก</td>
+                                            <td class="text-center">0 - 25</td>
+                                            <td align="left">คุณภาพอากาศดีมาก เหมาะสำหรับกิจกรรมกลางแจ้งและการท่องเที่ยว</td>
+                                        </tr>
+                                        <tr>
+                                            <td class="bg-leaf text-coal text-center">26 - 50</td>
+                                            <td class="text-center">คุณภาพอากาศดี</td>
+                                            <td class="text-center">26 - 37</td>
+                                            <td align="left">คุณภาพอากาศดี สามารถทำกิจกรรมกลางแจ้งและการท่องเที่ยวได้ตามปกติ</td>   
+                                        </tr>
+                                        <tr>
+                                            <td class="bg-star text-coal text-center">51 - 100</td>
+                                            <td class="text-center">ปานกลาง</td>
+                                            <td class="text-center">38 - 50</td>
+                                            <td align="left"><u>ประชาชนทั่วไป :</u> สามารถทำกิจกรรมกลางแจ้งได้ตามปกติ<br />
+                                                <u>ผู้ที่ต้องดูแลสุขภาพเป็นพิเศษ :</u> หากมีอาการเบื้องต้น เช่น ไอ หายใจลำบาก ระคายเคืองตา ควรลดระยะเวลาการทำกิจกรรมกลางแจ้ง
+                                            </td>
+                                        </tr>
+                                        <tr>
+                                            <td class="bg-sohot text-cloud text-center">101 - 200</td>
+                                            <td class="text-center">เริ่มมีผลกระทบต่อสุขภาพ</td>
+                                            <td class="text-center">51 - 90</td>
+                                            <td align="left">
+                                                <u>ประชาชนทั่วไป :</u> ควรเฝ้าระวังสุขภาพ ถ้ามีอาการเบื้องต้น เช่น ไอ หายใจลำบาก ระคายเคืองตา 
+                                                ควรลดระยะเวลาการทำกิจกรรมกลางแจ้ง หรือใช้อุปกรณ์ป้องกันตนเองหากมีความจำเป็น<br />
+                                                <u>ผู้ที่ต้องดูแลสุขภาพเป็นพิเศษ :</u> 
+                                                ควรลดระยะเวลาการทำกิจกรรมกลางแจ้ง หรือใช้อุปกรณ์ป้องกันตนเองหากมีความจำเป็น ถ้ามีอาการทางสุขภาพ เช่น 
+                                                ไอ หายใจลำบาก ตาอักเสบ แน่นหน้าอก ปวดศีรษะ หัวใจเต้นไม่เป็นปกติ คลื่นไส้ อ่อนเพลีย ควรปรึกษาแพทย์
+                                            </td>
+                                        </tr>
+                                        <tr>
+                                            <td class="bg-ruby text-cloud text-center">201 ขึ้นไป </td>
+                                            <td class="text-center">มีผลกระทบต่อสุขภาพ</td>
+                                            <td class="text-center">91 ขึ้นไป</td>
+                                            <td align="left">
+                                                ทุกคนควรหลีกเลี่ยงกิจกรรมกลางแจ้งทุก หลีกเลี่ยงพื้นที่ที่มีมลพิษทางอากาศสูง 
+                                                หรือใช้อุปกรณ์ป้องกันตนเองหากมีความจำเป็น หากมีอาการทางสุขภาพควรปรึกษาแพทย์
+                                            </td>
+                                        </tr>
+                                    </tbody>
+                                </table>
+                            </div>
+                        </div>
                     </div>
                 </div>
                 <!--/CONTENT 5 - INDEX-->
@@ -283,7 +296,7 @@ $result = json_encode($resulta);
             </div>
             <!--/ CONTENT 1-->
             
-            <div class="col-12 col-md pr-5">
+            <div class="col-12 col-lg pr-5">
                 <!--CONTENT 2 - Factors-->
                 <div class="row m-2 mb-3">
                     <!-- PM10 -->
